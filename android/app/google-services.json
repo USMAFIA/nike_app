@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "57285740561",
+    "project_id": "nikeapp-b119c",
+    "storage_bucket": "nikeapp-b119c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57285740561:android:d170587c4cbe48f36849b0",
+        "android_client_info": {
+          "package_name": "com.ratedsoltech.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57285740561-dvclp6fqcfp2p68ffubrje3u5lmroeaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA23lwkNFNZiHIVxzsYekxv89vFp-lxvdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57285740561-dvclp6fqcfp2p68ffubrje3u5lmroeaq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "57285740561-pundvlma5vbmnhb8nhg8tttutnbqq31q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ratedsoltech.nikeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
