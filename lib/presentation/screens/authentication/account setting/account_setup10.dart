@@ -1,5 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:nike_app/presentation/screens/home/home.dart';
 
 import '../../../../constant/colors.dart';
 import '../../../widget/account_settings_widget/account_setup_heading.dart';
@@ -12,6 +13,16 @@ class AccountSetup10 extends StatefulWidget {
 }
 
 class _AccountSetup10State extends State<AccountSetup10> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
