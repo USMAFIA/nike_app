@@ -5,7 +5,9 @@ class AppColors {
   static const Color tbl = Color(0xFF6200EE);
   static const Color bl = Color(0xFF007AFF);
   static const Color pl = Color(0xFF3700B3);
-  static const Color gr = Color(0x0);
+  static Color gr6 = Colors.grey[600]!;
+  static Color gr8 = Colors.grey[800]!;
+
   static const Color r = Color(0xFFB00020);
   static const Color bk = Color(0xFF000000);
   static const Color w = Color(0xFFFFFFFF);

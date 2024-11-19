@@ -1,6 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
-import 'package:nike_app/presentation/screens/home/home.dart';
+import 'package:nike_app/presentation/screens/home/main_page.dart';
 
 import '../../../../constant/colors.dart';
 import '../../../widget/account_settings_widget/account_setup_heading.dart';

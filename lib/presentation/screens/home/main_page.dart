@@ -45,33 +45,33 @@ class _HomeScreenState extends State<HomeScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined,
-              color: (_page == 0) ?AppColors.bk : Colors.grey[600] ,
+              color: (_page == 0) ?AppColors.bk : AppColors.gr6,
             ),
             label: 'Home',
             backgroundColor: AppColors.w,
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.search_sharp,
-                color: (_page == 1) ?  AppColors.bk : Colors.grey[600],
+                color: (_page == 1) ?  AppColors.bk : AppColors.gr6,
               ),
               label: 'Shop',
               backgroundColor: AppColors.w),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite_outline,
-                color: (_page == 2) ?  AppColors.bk : Colors.grey[600],
+                color: (_page == 2) ?  AppColors.bk : AppColors.gr6,
               ),
               label: 'Favorites',
               backgroundColor: AppColors.w),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag_outlined,
-              color: (_page == 3) ? AppColors.bk : Colors.grey[600],
+              color: (_page == 3) ? AppColors.bk : AppColors.gr6,
             ),
             label: 'Bag',
             backgroundColor: AppColors.w,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline,
-              color: (_page == 4) ? AppColors.bk : Colors.grey[600],
+              color: (_page == 4) ? AppColors.bk : AppColors.gr6,
             ),
             label: 'Profile',
             backgroundColor: AppColors.w,
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: pageController,
         onPageChanged: onPageChanged,
         physics:  const NeverScrollableScrollPhysics(),
-        children: GlobalConstants.homeItems(context),
+        children: GlobalConstants.mainPageItems(context),
       ),
     );
   }

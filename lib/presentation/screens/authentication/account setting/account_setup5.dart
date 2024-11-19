@@ -126,7 +126,7 @@ class _AccountSetup5State extends State<AccountSetup5> {
                             width: 51,
                             decoration: BoxDecoration(
                               color:
-                                  isSelected ? AppColors.w : Colors.grey[800],
+                                  isSelected ? AppColors.w : AppColors.gr8,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Center(
@@ -156,7 +156,7 @@ class _AccountSetup5State extends State<AccountSetup5> {
                         height: 50,
                         width: 150,
                         decoration: BoxDecoration(
-                          color: !anySelected ? Colors.grey[800] : AppColors.w,
+                          color: !anySelected ? AppColors.gr8 : AppColors.w,
                           border: Border.all(
                             color: !anySelected
                                 ? Colors.black
