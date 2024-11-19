@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../presentation/screens/home/home_screens/home1.dart';
+import '../presentation/screens/home/shop_screens/shop1.dart';
 
 class GlobalConstants {
   static homeItems(BuildContext context) {
