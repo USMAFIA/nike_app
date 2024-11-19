@@ -1,81 +1,48 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nike_app/constant/colors.dart';
+import '../../../../constant/global_constants.dart';
 
-import '../../../constant/global_constants.dart';
+class Home extends StatefulWidget {
+  final int initialPage;
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const Home({super.key, this.initialPage = 0});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-   late int _page = 0;
-   PageController pageController = PageController();
+class _HomeState extends State<Home> {
+  late int _currentPage;
+  late final PageController _pageController;
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = widget.initialPage;
+    _pageController = PageController(initialPage: _currentPage);
+  }
 
-   @override
-   void dispose() {
-     super.dispose();
-     pageController.dispose();
-   }
-  void onPageChanged(int page) {
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onPageChanged(int page) {
     setState(() {
-      _page = page;
+      _currentPage = page;
     });
   }
 
-  void navigationTapped(int page) {
-    pageController.jumpToPage(page);
+  void _onNavigationTapped(int page) {
+    _pageController.jumpToPage(page);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.w,
-      bottomNavigationBar: CupertinoTabBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined,
-              color: (_page == 0) ?AppColors.bk : Colors.grey[600] ,
-            ),
-            label: 'Home',
-            backgroundColor: AppColors.w,
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search_sharp,
-                color: (_page == 1) ?  AppColors.bk : Colors.grey[600],
-              ),
-              label: 'Shop',
-              backgroundColor: AppColors.w),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline,
-                color: (_page == 2) ?  AppColors.bk : Colors.grey[600],
-              ),
-              label: 'Favorites',
-              backgroundColor: AppColors.w),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined,
-              color: (_page == 3) ? AppColors.bk : Colors.grey[600],
-            ),
-            label: 'Bag',
-            backgroundColor: AppColors.w,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline,
-              color: (_page == 4) ? AppColors.bk : Colors.grey[600],
-            ),
-            label: 'Profile',
-            backgroundColor: AppColors.w,
-          ),
-        ],
-        onTap: navigationTapped,
-        currentIndex: _page,
-      ),
       body: PageView(
-        controller: pageController,
-        onPageChanged: onPageChanged,
-        physics:  const NeverScrollableScrollPhysics(),
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        physics: const NeverScrollableScrollPhysics(),
         children: GlobalConstants.homeItems(context),
       ),
     );
