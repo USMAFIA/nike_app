@@ -25,7 +25,9 @@ class _Home7State extends State<Home7> {
             curve: Curves.easeInOut);
       },
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: AppColors.w,
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +76,7 @@ class _Home7State extends State<Home7> {
                       size: 15,
                     ),
                     Padding(
-                        padding: const EdgeInsets.only(top: 35),
+                        padding: const EdgeInsets.only(top: 35,bottom: 20),
                         child: HelText(
                           text: widget.blog.description ?? 'Description',
                           color: AppColors.bk,
@@ -82,21 +84,15 @@ class _Home7State extends State<Home7> {
                         )),
                     Center(
                       child: Container(
-                        padding: const EdgeInsets.only(top: 25, bottom: 60),
                         height: 51,
-                        width: 335,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: AppColors.bk,
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(50)
                         ),
-                        child: const Center(
-                          child: Text(
-                            'Shop Air Max',
-                            style: TextStyle(fontSize: 20, color: AppColors.w),
-                          ),
-                        ),
+                        child: const Center(child: HelText(text: 'Shop Air Max', color: AppColors.w,size: 20,),),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),

@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
+import '../../constant/colors.dart';
 
 class HelText extends StatelessWidget {
-  const HelText({super.key,required this.text,this.size = 32,this.color = Colors.black});
+  const HelText({super.key,required this.text,this.size = 32,this.color = AppColors.bk});
   final String text;
   final double size;
   final Color color;
