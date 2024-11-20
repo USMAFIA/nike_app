@@ -48,7 +48,7 @@ class _Home1State extends State<Home1> {
               InkWell(
                 onTap: () {
                   widget.controller.animateToPage(
-                    6,
+                    2,
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   );
@@ -123,7 +123,7 @@ class _Home1State extends State<Home1> {
               InkWell(
                 onTap: () {
                   widget.controller.animateToPage(
-                    6,
+                    2,
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
                   );

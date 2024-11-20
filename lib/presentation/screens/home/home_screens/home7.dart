@@ -20,7 +20,7 @@ class _Home7State extends State<Home7> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        widget.controller.animateToPage(0,
+        widget.controller.animateToPage(2,
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut);
       },
