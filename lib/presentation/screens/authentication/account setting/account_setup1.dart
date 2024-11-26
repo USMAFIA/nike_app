@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../constant/colors.dart';
 import '../../../widget/account_settings_widget/account_setup_heading.dart';
-import '../../../widget/hel_text.dart';
 import 'account_setup2.dart';
 
 class AccountSetup1 extends StatefulWidget {

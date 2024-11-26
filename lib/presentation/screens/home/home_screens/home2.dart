@@ -107,7 +107,6 @@ class _Home2State extends State<Home2> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(labels.length, (index) {
                   final isSelected = _currentIndex == index;
-
                   return GestureDetector(
                     onTap: () {
                       setState(() {

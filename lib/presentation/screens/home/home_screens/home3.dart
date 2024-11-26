@@ -32,7 +32,7 @@ class _Home3State extends State<Home3> {
               Container(
                 height: 376,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: NetworkImage(
@@ -40,7 +40,7 @@ class _Home3State extends State<Home3> {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding:
                     EdgeInsets.only(top: 40, bottom: 50, right: 24, left: 24),
                 child: Column(
@@ -52,7 +52,7 @@ class _Home3State extends State<Home3> {
                       size: 30,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
+                      padding: EdgeInsets.only(top: 20.0),
                       child: HelText(
                         text:
                             'Hip hop dancer Soyeon Jang shows us an\nepic dance challenge in the latest Playlist\nepisode. Soyeon dances three parts of the\nroutine - first fast, then slow. Then she\ncombines all the moves for an awesome\ndance party with her buddy, Disco Dancer.\nKids will get inspired to dance along and\nmake up a dance routine of their own.',
@@ -70,19 +70,25 @@ class _Home3State extends State<Home3> {
                     Padding(
                       padding: const EdgeInsets.only(right: 30.0),
                       child: InkWell(
-                          onTap: (){
-                            widget.controller.animateToPage(6, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                          onTap: () {
+                            widget.controller.animateToPage(6,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut);
                           },
-                          child: Icon(Icons.file_upload_outlined)),
+                          child: const Icon(Icons.file_upload_outlined)),
                     ),
-                    Icon(Icons.messenger_outline),
+                    InkWell(
+                        onTap: (){
+                          widget.controller.animateToPage(8, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+                        },
+                        child: const Icon(Icons.messenger_outline)),
                   ],
                 ),
               ),
               Container(
                 height: 339,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: NetworkImage(
@@ -92,37 +98,61 @@ class _Home3State extends State<Home3> {
               ),
               Center(
                 child: Container(
-                  padding: EdgeInsets.only(top: 40,bottom: 40),
-                    width: 350,
-                    child: BlackButton(text: 'Explore'),
+                  padding: const EdgeInsets.only(top: 40, bottom: 40),
+                  width: 350,
+                  child: const BlackButton(text: 'Explore'),
                 ),
               ),
-              Center(
+              const Center(
                 child: SizedBox(
                   width: 350,
                   child: Divider(),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 24.0,top: 30,bottom: 30),
-                child: HelText(text: 'Comments (19)',size: 22,),
+              const Padding(
+                padding: EdgeInsets.only(left: 24.0, top: 30, bottom: 30),
+                child: HelText(
+                  text: 'Comments (19)',
+                  size: 22,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 30.0),
-                child: Center(child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  decoration: BoxDecoration(
+                child: Center(
+                  child: Container(
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: AppColors.gr6),
-                  ),
-                  child: TextFormField(
-                    controller: commentController,
-                    decoration: InputDecoration(
-                      hintText: 'Add a comment...',
-                      border: InputBorder.none,
+                      border: Border.all(color: AppColors.gr6),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            controller: commentController,
+                            decoration: const InputDecoration(
+                              hintText: 'Add a comment...',
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: (){},
+                          child: Container(
+                            height: 40,
+                            width: 70,
+                            decoration: BoxDecoration(
+                              color: AppColors.bk,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: const Center(child: HelText(text: 'Post',size: 15,color: AppColors.w),),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),),
+                ),
               ),
             ],
           ),

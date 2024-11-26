@@ -4,7 +4,6 @@ import 'package:nike_app/presentation/screens/authentication/account%20setting/a
 import '../../../../constant/colors.dart';
 import '../../../widget/account_settings_widget/account_setup_heading.dart';
 import '../../../widget/black_button.dart';
-import '../../../widget/hel_text.dart';
 
 class AccountSetup2 extends StatefulWidget {
   const AccountSetup2({super.key});
@@ -81,7 +80,7 @@ class _AccountSetup2State extends State<AccountSetup2> {
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>const AccountSetup3()));
                       },
-                      child: const BlackButton(text: 'Get Started',),
+                      child: const BlackButton(text: 'Get Started',color: AppColors.w,),
                     ),
                   ),
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/constant/colors.dart';
-import 'package:nike_app/presentation/widget/bottom_sheet.dart';
 import 'package:nike_app/presentation/widget/dielogue_for_js.dart';
 import 'package:nike_app/presentation/widget/hel_text.dart';
 

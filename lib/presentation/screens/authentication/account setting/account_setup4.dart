@@ -15,6 +15,33 @@ class AccountSetup4 extends StatefulWidget {
 }
 
 class _AccountSetup4State extends State<AccountSetup4> {
+  List<String> selectSport = [];
+  List<Map<dynamic,dynamic>> sports = [
+    {
+      'title' : 'Running',
+      'image' : 'assets/images/ellipse2_running.png'
+    },
+    {
+      'title' : 'Lifestyle',
+      'image' : 'assets/images/ellipse2_lifestyle.png'
+    },
+    {
+      'title' : 'Basketball',
+      'image' : 'assets/images/ellipse2_basketball.png'
+    },
+    {
+      'title' : 'Soccer',
+      'image' : 'assets/images/ellipse2_soccer.png'
+    },
+    {
+      'title' : 'Jorden',
+      'image' : 'assets/images/ellipse2_jordan.png'
+    },
+    {
+      'title' : 'Nike By You',
+      'image' : 'assets/images/ellipse2_nike_by_you.png'
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,47 +91,27 @@ class _AccountSetup4State extends State<AccountSetup4> {
                   child: AccountSetupHeading(
                       text: 'What sports, brands\nand collections are you\ninterested in?'),
                 ),
-                AccountSetupImgName(
-                  padding: const EdgeInsets.only(top: 17),
-                  isSelected: false,
-                  showDivider: true,
-                  heading: 'Running',
-                  image: 'assets/images/ellipse2_running.png',
-                ),
-                AccountSetupImgName(
-                  padding: const EdgeInsets.only(top: 17),
-                  isSelected: false,
-                  showDivider: true,
-                  heading: 'Lifestyle',
-                  image: 'assets/images/ellipse2_lifestyle.png',
-                ),
-                AccountSetupImgName(
-                  padding: const EdgeInsets.only(top: 17),
-                  isSelected: false,
-                  showDivider: true,
-                  heading: 'Basketball',
-                  image: 'assets/images/ellipse2_basketball.png',
-                ),
-                AccountSetupImgName(
-                  padding: const EdgeInsets.only(top: 17),
-                  isSelected: false,
-                  showDivider: true,
-                  heading: 'Soccer',
-                  image: 'assets/images/ellipse2_soccer.png',
-                ),
-                AccountSetupImgName(
-                  padding: const EdgeInsets.only(top: 17),
-                  isSelected: false,
-                  showDivider: true,
-                  heading: 'Jorden',
-                  image: 'assets/images/ellipse2_jordan.png',
-                ),
-                AccountSetupImgName(
-                  padding: const EdgeInsets.only(top: 17),
-                  isSelected: false,
-                  showDivider: true,
-                  heading: 'Nike By You',
-                  image: 'assets/images/ellipse2_nike_by_you.png',
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: sports.length,
+                      itemBuilder: (context,index){
+                        return AccountSetupImgName(
+                          onTap: () {
+                            if (selectSport.contains(sports[index]['title'])) {
+                              selectSport.remove(sports[index]['title']);
+                            } else {
+                              selectSport.add(sports[index]['title']);
+                            }
+                            setState(() {});
+                          },
+                          padding: const EdgeInsets.only(top: 17),
+                          isSelected: selectSport.contains(sports[index]['title']),
+                          showDivider: true,
+                          heading: sports[index]['title'],
+                          image: sports[index]['image'],
+                        );
+                      },
+                  ),
                 ),
                 InkWell(
                   onTap: () {

@@ -14,12 +14,9 @@ class AccountSetup3 extends StatefulWidget {
 }
 
 class _AccountSetup3State extends State<AccountSetup3> {
+  List<String> selectGender = [];
   @override
   Widget build(BuildContext context) {
-    bool isMensSelected = false;
-    bool isWomensSelected = false;
-    bool isBoysSelected = false;
-    bool isGirlsSelected = false;
     return Scaffold(
       body: Stack(
         children: [
@@ -68,34 +65,63 @@ class _AccountSetup3State extends State<AccountSetup3> {
                       text: 'First up, which product\ndo you use the most?'),
                 ),
                 AccountSetupImgName(
+                  onTap: () {
+                    if (selectGender.contains('Mens')) {
+                      selectGender.remove('Mens');
+                    } else {
+                      selectGender.add('Mens');
+                    }
+                    setState(() {});
+                  },
                   padding: const EdgeInsets.only(top: 50),
-                  isSelected: isMensSelected,
+                  isSelected: selectGender.contains('Mens'),
                   showDivider: true,
                   heading: 'Mens',
                   image: 'assets/images/ellipse1_man.png',
                 ),
                 AccountSetupImgName(
+                  onTap: () {
+                    if (selectGender.contains('Womens')) {
+                      selectGender.remove('Womens');
+                    } else {
+                      selectGender.add('Womens');
+                    }
+                    setState(() {});
+                  },
                   padding: const EdgeInsets.only(top: 20, bottom: 50),
-                  isSelected: isWomensSelected,
+                  isSelected: selectGender.contains('Womens'),
                   heading: 'Womens',
                   image: 'assets/images/ellipse1_women.png',
                 ),
                 const AccountSetupHeading(text: 'Any others?'),
                 AccountSetupImgName(
+                  onTap: () {
+                    if (selectGender.contains('Boys')) {
+                      selectGender.remove('Boys');
+                    } else {
+                      selectGender.add('Boys');
+                    }
+                    setState(() {});
+                  },
                   padding: const EdgeInsets.only(
                     top: 20,
                   ),
-                  isSelected: isBoysSelected,
+                  isSelected: selectGender.contains('Boys'),
                   showDivider: true,
                   heading: 'Boys',
                   image: 'assets/images/ellipise1_boys.png',
                 ),
                 AccountSetupImgName(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                    bottom: 50
-                  ),
-                  isSelected: isGirlsSelected,
+                  onTap: () {
+                    if (selectGender.contains('Girls')) {
+                      selectGender.remove('Girls');
+                    } else {
+                      selectGender.add('Girls');
+                    }
+                    setState(() {});
+                  },
+                  padding: const EdgeInsets.only(top: 20, bottom: 50),
+                  isSelected: selectGender.contains('Girls'),
                   heading: 'Girls',
                   image: 'assets/images/ellipse1_girls.png',
                 ),
@@ -104,7 +130,7 @@ class _AccountSetup3State extends State<AccountSetup3> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const AccountSetup4()));
+                            builder: (context) => const AccountSetup4()));
                   },
                   child: Center(
                     child: Container(
