@@ -24,7 +24,7 @@ class _Shop1State extends State<Shop1> {
   @override
   Widget build(BuildContext context) {
     final labels = ["Men", "Women", "Kids"];
-    final pages = GlobalConstants.shop1Items(context);
+    final pages = GlobalConstants.shop1Items(context,widget.controller);
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {

@@ -10,6 +10,7 @@ import '../presentation/screens/home/home_screens/home2.dart';
 import '../presentation/screens/home/home_screens/home3.dart';
 import '../presentation/screens/home/shop/shop.dart';
 import '../presentation/screens/home/shop/shop_screens/shop1.dart';
+import '../presentation/screens/home/shop/shop_screens/shop2.dart';
 import '../presentation/widget/home_screen_widgets/grid_view_products.dart';
 import '../presentation/widget/shop_screen_widgets/shop1_men.dart';
 
@@ -62,9 +63,9 @@ class GlobalConstants {
       const Text('---------------------------------3---------------------------------'),
     ];
   }
-  static shop1Items(BuildContext context) {
+  static shop1Items(BuildContext context,PageController controller) {
     return [
-      const Shop1Men(),
+      Shop1Men(controller: controller,),
       const Text('---------------------------------2---------------------------------'),
       const Text('---------------------------------3---------------------------------'),
     ];
@@ -72,7 +73,7 @@ class GlobalConstants {
   static shopItems(BuildContext context,PageController controller,) {
     return [
       Shop1(controller: controller),
-      const Text('---------------------------------2---------------------------------'),
+      Shop2(controller: controller),
       const Text('---------------------------------3---------------------------------'),
       const Text('---------------------------------4---------------------------------'),
       const Text('---------------------------------5---------------------------------'),

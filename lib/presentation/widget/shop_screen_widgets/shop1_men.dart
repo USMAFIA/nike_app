@@ -3,7 +3,8 @@ import 'package:nike_app/constant/colors.dart';
 import 'package:nike_app/presentation/widget/hel_text.dart';
 
 class Shop1Men extends StatefulWidget {
-  const Shop1Men({super.key});
+  final PageController controller;
+  const Shop1Men({super.key,required this.controller});
 
   @override
   State<Shop1Men> createState() => _Shop1MenState();
@@ -28,9 +29,14 @@ class _Shop1MenState extends State<Shop1Men> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const HelText(
-                  text: 'Must-Haves, Best Sellers & More',
-                  size: 20,
+                InkWell(
+                  onTap: (){
+                    widget.controller.animateToPage(1, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+                  },
+                  child: const HelText(
+                    text: 'Must-Haves, Best Sellers & More',
+                    size: 20,
+                  ),
                 ),
                 const SizedBox(
                   height: 28,
@@ -118,4 +124,3 @@ class _Shop1MenState extends State<Shop1Men> {
     );
   }
 }
-
