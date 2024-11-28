@@ -61,6 +61,17 @@ class _Shop1MenState extends State<Shop1Men> {
                                           'https://www.mbilalm.com/blog/wp-content/uploads/2022/11/Beautiful-Clock-Tower-Chowk-Ghanta-Ghar-Multan-410x512.jpg?ver=1.0'))),
                             ),
                           ),
+                          index == 0 ?
+                          InkWell(
+                            onTap: (){
+                              widget.controller.animateToPage(4, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                            },
+                            child: HelText(
+                              text: item['title'] ?? 'no Title',
+                              size: 18,
+                            ),
+                          )
+                              :
                           HelText(
                             text: item['title'] ?? 'no Title',
                             size: 18,

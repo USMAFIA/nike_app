@@ -35,10 +35,15 @@ class _Shop1State extends State<Shop1> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          actions: const [
-            Icon(
-              Icons.search_sharp,
-              size: 40,
+          actions: [
+            InkWell(
+              onTap: (){
+                widget.controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+              },
+              child: const Icon(
+                Icons.search_sharp,
+                size: 40,
+              ),
             ),
           ],
         ),

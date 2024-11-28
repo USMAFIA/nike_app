@@ -11,7 +11,10 @@ import '../presentation/screens/home/home_screens/home3.dart';
 import '../presentation/screens/home/shop/shop.dart';
 import '../presentation/screens/home/shop/shop_screens/shop1.dart';
 import '../presentation/screens/home/shop/shop_screens/shop2.dart';
-import '../presentation/widget/home_screen_widgets/grid_view_products.dart';
+import '../presentation/screens/home/shop/shop_screens/shop5.dart';
+import '../presentation/screens/home/shop/shop_screens/shop6.dart';
+import '../presentation/screens/home/shop/shop_screens/shop_search.dart';
+import '../presentation/widget/grid_view_products.dart';
 import '../presentation/widget/shop_screen_widgets/shop1_men.dart';
 
 class GlobalConstants {
@@ -74,11 +77,10 @@ class GlobalConstants {
     return [
       Shop1(controller: controller),
       Shop2(controller: controller),
-      const Text('---------------------------------3---------------------------------'),
-      const Text('---------------------------------4---------------------------------'),
-      const Text('---------------------------------5---------------------------------'),
+      ShopSearch(controller: controller),
+      Shop5(controller: controller,),
+      Shop6(controller: controller,),
       const Text('---------------------------------6---------------------------------'),
-      const Text('---------------------------------7---------------------------------'),
     ];
   }
 }

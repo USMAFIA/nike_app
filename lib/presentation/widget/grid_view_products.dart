@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/constant/colors.dart';
+import 'package:nike_app/presentation/utils/utills.dart';
 import 'package:nike_app/presentation/widget/hel_text.dart';
 
-import '../../../data/model/response_models/products_response_model.dart';
+import '../../data/model/response_models/products_response_model.dart';
 
 class GridViewProducts extends StatefulWidget {
   final List<ProductsResponseModel> products;
@@ -35,7 +36,7 @@ class _GridViewProductsState extends State<GridViewProducts> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: NetworkImage(widget.products[index].imageUrl ??
+                        image: isImageAsset(widget.products[index].imageUrl!) ? AssetImage(widget.products[index].imageUrl ?? 'assets/images/error.jpeg') : NetworkImage(widget.products[index].imageUrl ??
                             'https://plus.unsplash.com/premium_photo-1661765961176-95e74df91e3c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
                       ),
                     ),

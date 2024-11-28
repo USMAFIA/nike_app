@@ -69,12 +69,17 @@ class _Shop2State extends State<Shop2> {
         appBar: AppBar(
             title: const HelText(text: 'Shop'),
             centerTitle: true,
-            actions: const [
+            actions: [
               Padding(
                 padding: EdgeInsets.only(right: 10.0),
-                child: Icon(
-                  Icons.search_sharp,
-                  size: 40,
+                child: InkWell(
+                  onTap: (){
+                    widget.controller.animateToPage(2, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                  },
+                  child: Icon(
+                    Icons.search_sharp,
+                    size: 40,
+                  ),
                 ),
               ),
             ]),
