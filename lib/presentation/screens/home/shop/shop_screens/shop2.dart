@@ -71,12 +71,12 @@ class _Shop2State extends State<Shop2> {
             centerTitle: true,
             actions: [
               Padding(
-                padding: EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.only(right: 10.0),
                 child: InkWell(
                   onTap: (){
-                    widget.controller.animateToPage(2, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                    widget.controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.search_sharp,
                     size: 40,
                   ),

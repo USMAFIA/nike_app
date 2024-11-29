@@ -63,13 +63,13 @@ class _Shop6State extends State<Shop6> {
                 style: TextStyle(fontSize: 16),
               )),
           centerTitle: true,
-          actions: [
+          actions: const [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Icon(Icons.tune),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Icon(
                     Icons.search_sharp,
                     size: 30,

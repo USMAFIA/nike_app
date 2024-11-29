@@ -81,7 +81,7 @@ class GlobalConstants {
       ShopSearch(controller: controller),
       Shop5(controller: controller,),
       Shop6(controller: controller,),
-      ProductDetailScreen1(),
+      ProductDetailScreen1(controller: controller,),
     ];
   }
 }

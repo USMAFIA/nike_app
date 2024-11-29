@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nike_app/constant/colors.dart';
+import 'package:nike_app/presentation/widget/black_button.dart';
+
+import '../../../../widget/hel_text.dart';
 
 class ProductDetailScreen1 extends StatefulWidget {
-  const ProductDetailScreen1({super.key});
+  final PageController controller;
+  const ProductDetailScreen1({super.key, required this.controller});
 
   @override
   State<ProductDetailScreen1> createState() => _ProductDetailScreen1State();
@@ -10,7 +15,427 @@ class ProductDetailScreen1 extends StatefulWidget {
 class _ProductDetailScreen1State extends State<ProductDetailScreen1> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        widget.controller.animateToPage(0,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+            title: const HelText(
+              text: 'Nike Everyday Plus Cush...',
+              size: 16,
+            ),
+            centerTitle: true,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: InkWell(
+                  onTap: () {
+                    widget.controller.animateToPage(2,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut);
+                  },
+                  child: const Icon(
+                    Icons.search_sharp,
+                    size: 40,
+                  ),
+                ),
+              ),
+            ]),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                height: 470,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/product_image1.png')),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 2),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 2),
+                        child: Container(
+                          height: 170,
+                          width: 170,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                    'assets/images/product_image2.png')),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 2),
+                        child: Container(
+                          height: 170,
+                          width: 170,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                    'assets/images/product_image3.png')),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 2),
+                        child: Container(
+                          height: 170,
+                          width: 170,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                    'assets/images/product_image4.png')),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 35),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Training Crew Socks',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      const HelText(text: 'Nike Everyday Plus Cushioned'),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const HelText(
+                        text: 'US\$10',
+                        size: 21,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      const Text(
+                        'The Nike Everyday Plus Cushioned Socks bring comfort to your workout with extra cushioning under the heel and forefoot and a snug, supportive arch band. Sweat-wicking power and breathability up top help keep your feet dry and cool to help push you through that extra set.',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      const Text(
+                        ' •  Shown: Multi-Color',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const Text(
+                        ' •  Style: SX6897-965',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        'View Product Details',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: AppColors.gr6,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 66,
+                      ),
+                      const BlackButton(
+                        text: 'Select Size ↓',
+                        color: AppColors.w,
+                        height: 60,
+                      ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      const BlackButton(
+                        text: 'Add to Bag',
+                        height: 60,
+                      ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      const BlackButton(
+                        text: 'Favourite ♡',
+                        color: AppColors.w,
+                        height: 60,
+                      ),
+                      const SizedBox(
+                        height: 56,
+                      ),
+                      Container(
+                        height: 140,
+                        width: double.infinity,
+                        color: AppColors.gr1,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 18),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Get Your Gear Faster',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              const Text(
+                                'Look for store pick up at checkout',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              const SizedBox(
+                                height: 28,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 4,
+                                    width: 18,
+                                    color: AppColors.gr3,
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  Container(
+                                    height: 4,
+                                    width: 18,
+                                    color: AppColors.gr3,
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  Container(
+                                    height: 4,
+                                    width: 18,
+                                    color: AppColors.bk,
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                    height: 18,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      const Text(
+                        'Delivery',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Arrives Wed, 11 May',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'to Fri, 13 May ',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              Text(
+                                'Edit Location',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 24,),
+                      const Text(
+                        'Plck-Up',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 2,),
+                      const Text(
+                        'Find a Store',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                      const SizedBox(height: 64,),
+                      Divider(color: AppColors.gr3,),
+                      const SizedBox(height: 37,),
+                      const Row(children: [
+                        Expanded(
+                          child: Text(
+                            'Size and Fit',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Icon(Icons.keyboard_arrow_down,size: 30,),
+                      ],),
+                      const SizedBox(height: 37,),
+                      Divider(color: AppColors.gr3,),
+                      const SizedBox(height: 37,),
+                      const Row(children: [
+                        Expanded(
+                          child: Text(
+                            'Reviews (20)   ',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Icon(Icons.star),
+                        Icon(Icons.star),
+                        Icon(Icons.star),
+                        Icon(Icons.star),
+                        Icon(Icons.star),
+                        SizedBox(width: 16,),
+                        Icon(Icons.keyboard_arrow_down,size: 30,),
+                      ],),
+                      const SizedBox(height: 37,),
+                      Divider(color: AppColors.gr3,),
+                      const SizedBox(height: 37,),
+                      const Row(children: [
+                        Expanded(
+                          child: Text(
+                            'More Information',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Icon(Icons.keyboard_arrow_down,size: 30,),
+                      ],),
+                      const SizedBox(height: 37,),
+                      Divider(color: AppColors.gr3,),
+                      const SizedBox(height: 40,),
+                      const Text(
+                        'You Mignt Also Like',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 40,),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 246,
+                                  width: 246,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(image: AssetImage('assets/images/product_image5.png')),
+                                  ),
+                                ),
+                                const SizedBox(height: 7,),
+                                const Text(
+                                  'Nike Everyday Max Curshioned',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  'US\$24',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.gr6
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 246,
+                                  width: 246,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(image: AssetImage('assets/images/product_image6.png')),
+                                  ),
+                                ),
+                                const SizedBox(height: 7,),
+                                const Text(
+                                  '   Nike Dunk Low',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  '   US\$55',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.gr6
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20,),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

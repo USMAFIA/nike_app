@@ -64,7 +64,7 @@ class _Shop1MenState extends State<Shop1Men> {
                           index == 0 ?
                           InkWell(
                             onTap: (){
-                              widget.controller.animateToPage(4, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                              widget.controller.animateToPage(4, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
                             },
                             child: HelText(
                               text: item['title'] ?? 'no Title',

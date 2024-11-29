@@ -33,7 +33,7 @@ class _GridViewProductsState extends State<GridViewProducts> {
                     children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Shop7()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const Shop7()));
                     },
                     child: Container(
                       width: 190,

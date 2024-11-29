@@ -46,7 +46,7 @@ class _Shop5State extends State<Shop5> {
     return PopScope(
       child: Scaffold(
         appBar: AppBar(
-          title: Expanded(
+          title: const Expanded(
               child: Text(
             'socks',
             style: TextStyle(fontSize: 16),
