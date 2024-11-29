@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: const SplashScreen(),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.pl),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.ppl),
         useMaterial3: true,
       ),
     );

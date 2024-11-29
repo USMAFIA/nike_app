@@ -1,16 +1,20 @@
 import 'dart:convert';
+
 class ProductsResponseModel {
   String? imageUrl;
   String? title;
   String? productType;
   String? whichColor;
   String? price;
+  String? type;
+
   ProductsResponseModel({
     this.imageUrl,
     this.title,
     this.productType,
     this.whichColor,
     this.price,
+    this.type,
   });
 
   Map<String, dynamic> toMap() {
@@ -20,6 +24,7 @@ class ProductsResponseModel {
       'productType': productType,
       'whichColor': whichColor,
       'price': price,
+      'type': type,
     };
   }
 
@@ -27,11 +32,10 @@ class ProductsResponseModel {
     return ProductsResponseModel(
       imageUrl: map['imageUrl'] != null ? map['imageUrl'] as String : null,
       title: map['title'] != null ? map['title'] as String : null,
-      productType:
-          map['productType'] != null ? map['productType'] as String : null,
-      whichColor:
-          map['whichColor'] != null ? map['whichColor'] as String : null,
+      productType: map['productType'] != null ? map['productType'] as String : null,
+      whichColor: map['whichColor'] != null ? map['whichColor'] as String : null,
       price: map['price'] != null ? map['price'] as String : null,
+      type: map['type'] != null ? map['type'] as String : null,
     );
   }
 
@@ -39,5 +43,6 @@ class ProductsResponseModel {
 
   factory ProductsResponseModel.fromJson(String source) =>
       ProductsResponseModel.fromMap(
-          json.decode(source) as Map<String, dynamic>);
+        json.decode(source) as Map<String, dynamic>,
+      );
 }

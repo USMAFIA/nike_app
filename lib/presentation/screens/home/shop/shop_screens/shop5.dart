@@ -43,31 +43,33 @@ class _Shop5State extends State<Shop5> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Expanded(
-            child: Text(
-          'socks',
-          style: TextStyle(fontSize: 16),
-        )),
-        centerTitle: true,
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(Icons.tune),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Icon(
-                  Icons.search_sharp,
-                  size: 30,
+    return PopScope(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Expanded(
+              child: Text(
+            'socks',
+            style: TextStyle(fontSize: 16),
+          )),
+          centerTitle: true,
+          actions: const [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(Icons.tune),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Icon(
+                    Icons.search_sharp,
+                    size: 30,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
+        body: GridViewProducts(products: socksitems,),
       ),
-      body: GridViewProducts(products: socksitems,),
     );
   }
 }

@@ -6,7 +6,9 @@ import '../../../constant/global_constants.dart';
 
 class HomeScreen extends StatefulWidget {
   final int index;
-  const HomeScreen({super.key,this.index = 0});
+  final int page;
+  final int whichPage;
+  const HomeScreen({super.key,this.index = 0,this.whichPage=0,this.page = 0});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -14,11 +16,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
    late int _page ;
-   PageController pageController = PageController();
+   late PageController pageController;
    @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    pageController = PageController(initialPage: widget.whichPage);
     _page = widget.index;
 
   }
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: pageController,
         onPageChanged: onPageChanged,
         physics:  const NeverScrollableScrollPhysics(),
-        children: GlobalConstants.mainPageItems(context),
+        children: GlobalConstants.mainPageItems(context,widget.page),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/constant/colors.dart';
+import 'package:nike_app/presentation/screens/home/shop/shop7.dart';
 import 'package:nike_app/presentation/utils/utills.dart';
 import 'package:nike_app/presentation/widget/hel_text.dart';
 
@@ -30,14 +31,19 @@ class _GridViewProductsState extends State<GridViewProducts> {
               children: [
                 Stack(
                     children: [
-                  Container(
-                    width: 190,
-                    height: 190,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: isImageAsset(widget.products[index].imageUrl!) ? AssetImage(widget.products[index].imageUrl ?? 'assets/images/error.jpeg') : NetworkImage(widget.products[index].imageUrl ??
-                            'https://plus.unsplash.com/premium_photo-1661765961176-95e74df91e3c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Shop7()));
+                    },
+                    child: Container(
+                      width: 190,
+                      height: 190,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: isImageAsset(widget.products[index].imageUrl??'nullAsset') ? AssetImage(widget.products[index].imageUrl ?? 'assets/images/error.jpeg') : NetworkImage(widget.products[index].imageUrl ??
+                              'https://plus.unsplash.com/premium_photo-1661765961176-95e74df91e3c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+                        ),
                       ),
                     ),
                   ),
@@ -60,8 +66,18 @@ class _GridViewProductsState extends State<GridViewProducts> {
                     ),
                   ),
                 ]),
+                widget.products[index].type != null || widget.products[index].type != '' ?
+                const SizedBox()
+                    :Padding(
+                  padding: const EdgeInsets.only(top: 5, left: 5,),
+                  child: HelText(
+                    text: widget.products[index].type ?? 'Type?',
+                    color: AppColors.ty,
+                    size: 17,
+                  ),
+                ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 5, bottom: 2),
+                  padding: const EdgeInsets.only(top: 4, left: 5, bottom: 2),
                   child: HelText(
                     text: widget.products[index].title ?? 'title',
                     size: 18,

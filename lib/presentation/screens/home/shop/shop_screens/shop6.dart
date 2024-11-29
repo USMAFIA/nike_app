@@ -14,12 +14,36 @@ class Shop6 extends StatefulWidget {
 class _Shop6State extends State<Shop6> {
   final List<ProductsResponseModel> shop6items = [
     ProductsResponseModel(
-      title: 'Nike Everyday Plus Cushioned',
-      imageUrl: 'assets/images/sock1.png',
-      productType: 'Training Crew Socks (3 Pairs)',
-      whichColor: '10 Colours',
-      price: 'US\$22',
-
+      title: 'Nike Air Force 1\'07',
+      imageUrl: 'assets/images/best_seller1.png',
+      productType: 'Women\'s Shoe',
+      whichColor: '5 Colours',
+      price: 'US\$115',
+      type: 'BestSeller'
+    ),
+    ProductsResponseModel(
+        title: 'Jordan ENike Air Force 1\'07',
+        imageUrl: 'assets/images/best_seller2.png',
+        productType: 'Men\'s Shoe',
+        whichColor: '2 Colours',
+        price: 'US\$115',
+        type: 'BestSeller'
+    ),
+    ProductsResponseModel(
+        title: 'Jordan Essentials',
+        imageUrl: 'assets/images/best_seller3.png',
+        productType: 'Men’s Fleece Pullover Hoodie',
+        whichColor: '5 Colours',
+        price: 'US\$60',
+        type: 'BestSeller'
+    ),
+    ProductsResponseModel(
+        title: 'Jordan Essentials',
+        imageUrl: 'assets/images/best_seller4.png',
+        productType: 'Men’s Fleece Pullover Hoodie',
+        whichColor: '5 Colours',
+        price: 'US\$60',
+        type: 'BestSeller'
     ),
   ];
   @override
@@ -55,7 +79,7 @@ class _Shop6State extends State<Shop6> {
             ),
           ],
         ),
-        body: const GridViewProducts(products: [],),
+        body: GridViewProducts(products: shop6items,),
       ),
     );
   }
