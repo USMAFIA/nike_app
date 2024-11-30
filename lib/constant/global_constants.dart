@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nike_app/data/model/response_models/blog_response_model.dart';
+import 'package:nike_app/presentation/screens/home/favourite/favourite_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/comments_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/home7.dart';
 import 'package:nike_app/presentation/screens/home/product_detail/product_detail_screens/product_detail_screen1.dart';
@@ -9,6 +10,8 @@ import '../presentation/screens/home/home.dart';
 import '../presentation/screens/home/home_screens/home1.dart';
 import '../presentation/screens/home/home_screens/home2.dart';
 import '../presentation/screens/home/home_screens/home3.dart';
+import '../presentation/screens/home/product_detail/product_detail_screens/product_detail_screen2.dart';
+import '../presentation/screens/home/product_detail/product_detail_screens/product_detail_screen3.dart';
 import '../presentation/screens/home/shop/shop.dart';
 import '../presentation/screens/home/shop/shop_screens/shop1.dart';
 import '../presentation/screens/home/shop/shop_screens/shop2.dart';
@@ -23,7 +26,7 @@ class GlobalConstants {
     return [
       const Home(),
       Shop(initialPage: initialPage,),
-      const Text('---------------------------------fav---------------------------------'),
+      const FavouriteScreen(),
       const Text('---------------------------------bag---------------------------------'),
       const Text('---------------------------------profile---------------------------------'),
     ];
@@ -82,6 +85,8 @@ class GlobalConstants {
       Shop5(controller: controller,),
       Shop6(controller: controller,),
       ProductDetailScreen1(controller: controller,),
+      ProductDetailScreen2(controller: controller),
+      ProductDetailScreen3(controller: controller,),
     ];
   }
 }
