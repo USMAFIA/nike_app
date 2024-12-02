@@ -39,12 +39,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        physics: const NeverScrollableScrollPhysics(),
-        children: GlobalConstants.homeItems(context,_pageController,blogs[0]),
+    return SafeArea(
+      child: Scaffold(
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: _onPageChanged,
+          physics: const NeverScrollableScrollPhysics(),
+          children: GlobalConstants.homeItems(context,_pageController,blogs[0]),
+        ),
       ),
     );
   }

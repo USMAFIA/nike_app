@@ -24,81 +24,83 @@ class _Shop1State extends State<Shop1> {
   Widget build(BuildContext context) {
     final labels = ["Men", "Women", "Kids"];
     final pages = GlobalConstants.shop1Items(context,widget.controller);
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          InkWell(
-            onTap: (){
-              widget.controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-            },
-            child: const Icon(
-              Icons.search_sharp,
-              size: 40,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions: [
+            InkWell(
+              onTap: (){
+                widget.controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+              },
+              child: const Icon(
+                Icons.search_sharp,
+                size: 40,
+              ),
             ),
-          ),
-        ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 20,bottom: 20),
-            child: HelText(
-              text: 'Shop',
-              size: 40,
+          ],
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 20,bottom: 20),
+              child: HelText(
+                text: 'Shop',
+                size: 40,
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(labels.length, (index) {
-              final isSelected = _currentIndex == index;
-              return GestureDetector(
-                onTap: () {
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(labels.length, (index) {
+                final isSelected = _currentIndex == index;
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                    currentController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      HelText(
+                        text: labels[index],
+                        size: 16,
+                        color: isSelected ? AppColors.bk : AppColors.gr6,
+                      ),
+                      if (isSelected)
+                        Container(
+                          height: 2,
+                          width: 30 + (index * 10),
+                          color: AppColors.bk,
+                          margin: const EdgeInsets.only(top: 4),
+                        ),
+                    ],
+                  ),
+                );
+              }),
+            ),
+            Expanded(
+              child: PageView.builder(
+                controller: currentController,
+                onPageChanged: (index) {
                   setState(() {
                     _currentIndex = index;
                   });
-                  currentController.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
                 },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    HelText(
-                      text: labels[index],
-                      size: 16,
-                      color: isSelected ? AppColors.bk : AppColors.gr6,
-                    ),
-                    if (isSelected)
-                      Container(
-                        height: 2,
-                        width: 30 + (index * 10),
-                        color: AppColors.bk,
-                        margin: const EdgeInsets.only(top: 4),
-                      ),
-                  ],
-                ),
-              );
-            }),
-          ),
-          Expanded(
-            child: PageView.builder(
-              controller: currentController,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
-              itemCount: pages.length,
-              itemBuilder: (context, index) {
-                return pages[index];
-              },
+                itemCount: pages.length,
+                itemBuilder: (context, index) {
+                  return pages[index];
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -8,6 +8,7 @@ class AppColors {
   static Color gr = Colors.grey;
   static Color gr8 = Colors.grey[800]!;
   static Color gr3 = Colors.grey[300]!;
+  static Color gr4 = Colors.grey[400]!;
   static Color gr2 = Colors.grey[200]!;
   static Color gr1 = Colors.grey[100]!;
   static Color ppl = Colors.purple;

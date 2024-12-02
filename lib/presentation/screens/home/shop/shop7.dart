@@ -93,130 +93,132 @@ class _Shop7State extends State<Shop7> {
                       whichPage: 1,
                     )));
       },
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    right: 20, left: 20, top: 60, bottom: 10),
-                child: Row(
-                  children: [
-                    const Expanded(child: HelText(text: 'Filter')),
-                    InkWell(
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen(
-                                    index: 1,
-                                    page: 0,
-                                    whichPage: 1,
-                                  ))),
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.bk,
+      child: SafeArea(
+        child: Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      right: 20, left: 20, top: 60, bottom: 10),
+                  child: Row(
+                    children: [
+                      const Expanded(child: HelText(text: 'Filter')),
+                      InkWell(
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeScreen(
+                                      index: 1,
+                                      page: 0,
+                                      whichPage: 1,
+                                    ))),
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColors.bk,
+                          ),
+                          child: const Icon(Icons.close,
+                              color: AppColors.w, size: 27),
                         ),
-                        child: const Icon(Icons.close,
-                            color: AppColors.w, size: 27),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              ...sections.asMap().entries.map((entry) {
-                final sectionIndex = entry.key;
-                final section = entry.value;
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: HelText(text: section['title'], size: 22),
-                    ),
-                    if (section['items'].isNotEmpty)
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: section['items'].length,
-                        itemBuilder: (context, index) {
-                          return Shop7SortByWidget(
-                            text: section['items'][index],
-                            isSortBy: section['title'] == 'Sort By',
-                          );
-                        },
+                ...sections.asMap().entries.map((entry) {
+                  final sectionIndex = entry.key;
+                  final section = entry.value;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: HelText(text: section['title'], size: 22),
                       ),
-                    if (sectionIndex == 2)
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Divider(),
-                          const Padding(
-                            padding: EdgeInsets.all(20),
-                            child: HelText(text: 'Color', size: 22),
-                          ),
-                          GridView.count(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            crossAxisCount: 4,
-                            children: List.generate(colors.length, (index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 35,
-                                      height: 35,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: colors[index],
-                                        border: Border.all(
-                                            color: AppColors.gr2, width: 2),
+                      if (section['items'].isNotEmpty)
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: section['items'].length,
+                          itemBuilder: (context, index) {
+                            return Shop7SortByWidget(
+                              text: section['items'][index],
+                              isSortBy: section['title'] == 'Sort By',
+                            );
+                          },
+                        ),
+                      if (sectionIndex == 2)
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Divider(),
+                            const Padding(
+                              padding: EdgeInsets.all(20),
+                              child: HelText(text: 'Color', size: 22),
+                            ),
+                            GridView.count(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              crossAxisCount: 4,
+                              children: List.generate(colors.length, (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        width: 35,
+                                        height: 35,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: colors[index],
+                                          border: Border.all(
+                                              color: AppColors.gr2, width: 2),
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 8),
-                                    HelText(
-                                      text: labels[index],
-                                      size: 16,
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }),
-                          ),
-                        ],
-                      ),
-                    const Divider(),
-                  ],
-                );
-              }),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  children: [
-                    const BlackButton(
-                        text: 'Reset(1)', color: AppColors.w, width: 180),
-                    const SizedBox(width: 10),
-                    InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeScreen(
-                                        index: 1,
-                                        page: 5,
-                                        whichPage: 1,
-                                      )));
-                        },
-                        child: const BlackButton(
-                            text: 'Apply', color: AppColors.bk, width: 180)),
-                  ],
+                                      const SizedBox(height: 8),
+                                      HelText(
+                                        text: labels[index],
+                                        size: 16,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }),
+                            ),
+                          ],
+                        ),
+                      const Divider(),
+                    ],
+                  );
+                }),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    children: [
+                      const BlackButton(
+                          text: 'Reset(1)', color: AppColors.w, width: 180),
+                      const SizedBox(width: 10),
+                      InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen(
+                                          index: 1,
+                                          page: 5,
+                                          whichPage: 1,
+                                        )));
+                          },
+                          child: const BlackButton(
+                              text: 'Apply', color: AppColors.bk, width: 180)),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

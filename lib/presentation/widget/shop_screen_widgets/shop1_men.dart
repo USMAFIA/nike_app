@@ -20,117 +20,119 @@ class _Shop1MenState extends State<Shop1Men> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                InkWell(
-                  onTap: (){
-                    widget.controller.animateToPage(1, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-                  },
-                  child: const HelText(
-                    text: 'Must-Haves, Best Sellers & More',
-                    size: 20,
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: (){
+                      widget.controller.animateToPage(1, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+                    },
+                    child: const HelText(
+                      text: 'Must-Haves, Best Sellers & More',
+                      size: 20,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 28,
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: List.generate(scrollItems.length, (index) {
-                      final item = scrollItems[index];
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 5, right: 5, bottom: 20),
-                            child: Container(
-                              height: 216,
-                              width: 216,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(item['image'] ??
-                                          'https://www.mbilalm.com/blog/wp-content/uploads/2022/11/Beautiful-Clock-Tower-Chowk-Ghanta-Ghar-Multan-410x512.jpg?ver=1.0'))),
+                  const SizedBox(
+                    height: 28,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(scrollItems.length, (index) {
+                        final item = scrollItems[index];
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5, right: 5, bottom: 20),
+                              child: Container(
+                                height: 216,
+                                width: 216,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(item['image'] ??
+                                            'https://www.mbilalm.com/blog/wp-content/uploads/2022/11/Beautiful-Clock-Tower-Chowk-Ghanta-Ghar-Multan-410x512.jpg?ver=1.0'))),
+                              ),
                             ),
-                          ),
-                          index == 0 ?
-                          InkWell(
-                            onTap: (){
-                              widget.controller.animateToPage(4, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-                            },
-                            child: HelText(
+                            index == 0 ?
+                            InkWell(
+                              onTap: (){
+                                widget.controller.animateToPage(4, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+                              },
+                              child: HelText(
+                                text: item['title'] ?? 'no Title',
+                                size: 18,
+                              ),
+                            )
+                                :
+                            HelText(
                               text: item['title'] ?? 'no Title',
                               size: 18,
                             ),
-                          )
-                              :
-                          HelText(
-                            text: item['title'] ?? 'no Title',
-                            size: 18,
-                          ),
-                        ],
-                      );
-                    }),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0,bottom: 3),
-                    child: Container(
-                      height: 130,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          image: AssetImage('assets/images/discover3.png'),),
-                      ),
-                      child: const Center(
-                        child: HelText(
-                          text: 'New & Featured',
-                          size: 28,
-                          color: AppColors.w,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Container(
-                      height: 130,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          image: AssetImage('assets/images/shop1_img.png'),),
-                      ),
-                      child: const Center(
-                        child: HelText(
-                          text: 'New & Featured',
-                          size: 28,
-                          color: AppColors.w,
-                        ),
-                      ),
+                          ],
+                        );
+                      }),
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20.0,bottom: 3),
+                      child: Container(
+                        height: 130,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fitWidth,
+                            image: AssetImage('assets/images/discover3.png'),),
+                        ),
+                        child: const Center(
+                          child: HelText(
+                            text: 'New & Featured',
+                            size: 28,
+                            color: AppColors.w,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Container(
+                        height: 130,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.fitWidth,
+                            image: AssetImage('assets/images/shop1_img.png'),),
+                        ),
+                        child: const Center(
+                          child: HelText(
+                            text: 'New & Featured',
+                            size: 28,
+                            color: AppColors.w,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../../../constant/global_constants.dart';
 
-class Shop extends StatefulWidget {
+class BagScreen extends StatefulWidget {
   final int initialPage;
-  const Shop({super.key,this.initialPage = 0});
+  const BagScreen({super.key,this.initialPage = 0});
 
   @override
-  State<Shop> createState() => _ShopState();
+  State<BagScreen> createState() => _BagScreenState();
 }
 
-class _ShopState extends State<Shop> {
+class _BagScreenState extends State<BagScreen> {
   late int _currentPage;
   late final PageController _pageController;
   @override
@@ -33,14 +33,12 @@ class _ShopState extends State<Shop> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: _onPageChanged,
-          physics: const NeverScrollableScrollPhysics(),
-          children: GlobalConstants.shopItems(context,_pageController,),
-        ),
+    return Scaffold(
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        // physics: const NeverScrollableScrollPhysics(),
+        children: GlobalConstants.bagItems(context,_pageController,),
       ),
     );
   }

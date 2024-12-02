@@ -7,7 +7,7 @@ class BlackButton extends StatelessWidget {
   final Color color;
   final double height;
   final double width;
-  const BlackButton({super.key,this.height = 51,required this.text,this.color =AppColors.bk,this.width = double.infinity});
+  const BlackButton({super.key,this.height = 60,required this.text,this.color =AppColors.bk,this.width = double.infinity});
 
   @override
   Widget build(BuildContext context) {

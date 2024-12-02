@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nike_app/data/model/response_models/blog_response_model.dart';
+import 'package:nike_app/presentation/screens/home/bag/bag_screen1.dart';
 import 'package:nike_app/presentation/screens/home/favourite/favourite_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/comments_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/home7.dart';
 import 'package:nike_app/presentation/screens/home/product_detail/product_detail_screens/product_detail_screen1.dart';
 import '../data/model/response_models/comment_response_model.dart';
 import '../data/model/response_models/products_response_model.dart';
+import '../presentation/screens/home/bag/bag_screen2.dart';
+import '../presentation/screens/home/bag/bag_screen.dart';
 import '../presentation/screens/home/home.dart';
 import '../presentation/screens/home/home_screens/home1.dart';
 import '../presentation/screens/home/home_screens/home2.dart';
@@ -27,7 +30,7 @@ class GlobalConstants {
       const Home(),
       Shop(initialPage: initialPage,),
       const FavouriteScreen(),
-      const Text('---------------------------------bag---------------------------------'),
+      BagScreen(initialPage: initialPage,),
       const Text('---------------------------------profile---------------------------------'),
     ];
   }
@@ -75,6 +78,13 @@ class GlobalConstants {
       Shop1Men(controller: controller,),
       const Text('---------------------------------2---------------------------------'),
       const Text('---------------------------------3---------------------------------'),
+    ];
+  }
+  static bagItems(BuildContext context,PageController controller) {
+    return [
+      BagScreen1(controller: controller,),
+      BagScreen2(controller: controller,),
+      // const Text('---------------------------------3---------------------------------'),
     ];
   }
   static shopItems(BuildContext context,PageController controller,) {

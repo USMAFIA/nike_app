@@ -65,121 +65,123 @@ class _Shop2State extends State<Shop2> {
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut);
       },
-      child: Scaffold(
-        appBar: AppBar(
-            title: const HelText(text: 'Shop'),
-            centerTitle: true,
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: InkWell(
-                  onTap: (){
-                    widget.controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-                  },
-                  child: const Icon(
-                    Icons.search_sharp,
-                    size: 40,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+              title: const HelText(text: 'Shop'),
+              centerTitle: true,
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: InkWell(
+                    onTap: (){
+                      widget.controller.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+                    },
+                    child: const Icon(
+                      Icons.search_sharp,
+                      size: 40,
+                    ),
                   ),
                 ),
-              ),
-            ]),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: List.generate(shop2Items.length, (index) {
-                final currentList = shop2Items[index];
-                return Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: SizedBox(
-                    height: 342,
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: HelText(
-                                  text: index == 0
-                                      ? 'New Arrivals'
-                                      : index == 1
-                                          ? 'Shop by Collection'
-                                          : index == 2
-                                              ? 'Shop My Interest'
-                                              : index == 3
-                                                  ? 'Recommended For You'
-                                                  : '--Nothing here--',
-                                  size: 22,
+              ]),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: List.generate(shop2Items.length, (index) {
+                  final currentList = shop2Items[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      height: 342,
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: HelText(
+                                    text: index == 0
+                                        ? 'New Arrivals'
+                                        : index == 1
+                                            ? 'Shop by Collection'
+                                            : index == 2
+                                                ? 'Shop My Interest'
+                                                : index == 3
+                                                    ? 'Recommended For You'
+                                                    : '--Nothing here--',
+                                    size: 22,
+                                  ),
                                 ),
-                              ),
-                              HelText(
-                                text: index == 0
-                                    ? 'View All'
-                                    : index == 2
-                                        ? 'Add interest'
-                                        : '',
-                                color: AppColors.gr6,
-                                size: 15,
-                              ),
-                            ],
+                                HelText(
+                                  text: index == 0
+                                      ? 'View All'
+                                      : index == 2
+                                          ? 'Add interest'
+                                          : '',
+                                  color: AppColors.gr6,
+                                  size: 15,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: currentList.map((innerList) {
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Container(
-                                      width: 246,
-                                      height: 246,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              innerList['image'] ??
-                                                  'assets/images/default.png'),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: currentList.map((innerList) {
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Container(
+                                        width: 246,
+                                        height: 246,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: AssetImage(
+                                                innerList['image'] ??
+                                                    'assets/images/default.png'),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 5),
-                                    child: HelText(
-                                      text: innerList['title'] ?? '-No Title-',
-                                      size: 20,
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom: 5),
+                                      child: HelText(
+                                        text: innerList['title'] ?? '-No Title-',
+                                        size: 20,
+                                      ),
                                     ),
-                                  ),
-                                  HelText(
-                                    text:
-                                        innerList['price'] ?? '---No price---',
-                                    color: AppColors.gr6,
-                                    size: 15,
-                                  ),
-                                ],
-                              );
-                            }).toList(),
+                                    HelText(
+                                      text:
+                                          innerList['price'] ?? '---No price---',
+                                      color: AppColors.gr6,
+                                      size: 15,
+                                    ),
+                                  ],
+                                );
+                              }).toList(),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                }),
+              ),
             ),
           ),
         ),
