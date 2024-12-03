@@ -233,7 +233,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             onTap: upgradeContent,
                             child: BlackButton(
                               text: 'Add to Bag',
-                              height: 60,
+                              height: 60, textColor: AppColors.w,
                             ),
                           ),
                           SizedBox(

@@ -199,7 +199,7 @@ class _Shop7State extends State<Shop7> {
                   child: Row(
                     children: [
                       const BlackButton(
-                          text: 'Reset(1)', color: AppColors.w, width: 180),
+                          text: 'Reset(1)', color: AppColors.w, width: 180, textColor: AppColors.bk,),
                       const SizedBox(width: 10),
                       InkWell(
                           onTap: () {
@@ -213,7 +213,7 @@ class _Shop7State extends State<Shop7> {
                                         )));
                           },
                           child: const BlackButton(
-                              text: 'Apply', color: AppColors.bk, width: 180)),
+                              text: 'Apply', color: AppColors.bk, width: 180, textColor: AppColors.w,)),
                     ],
                   ),
                 ),

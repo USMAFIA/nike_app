@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nike_app/data/model/response_models/blog_response_model.dart';
 import 'package:nike_app/presentation/screens/home/bag/bag_screen1.dart';
+import 'package:nike_app/presentation/screens/home/bag/bag_screen4.dart';
 import 'package:nike_app/presentation/screens/home/favourite/favourite_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/comments_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/home7.dart';
@@ -9,6 +10,7 @@ import '../data/model/response_models/comment_response_model.dart';
 import '../data/model/response_models/products_response_model.dart';
 import '../presentation/screens/home/bag/bag_screen2.dart';
 import '../presentation/screens/home/bag/bag_screen.dart';
+import '../presentation/screens/home/bag/bag_screen3.dart';
 import '../presentation/screens/home/home.dart';
 import '../presentation/screens/home/home_screens/home1.dart';
 import '../presentation/screens/home/home_screens/home2.dart';
@@ -84,7 +86,8 @@ class GlobalConstants {
     return [
       BagScreen1(controller: controller,),
       BagScreen2(controller: controller,),
-      // const Text('---------------------------------3---------------------------------'),
+      BagScreen3(controller: controller,),
+      BagScreen4(controller: controller,),
     ];
   }
   static shopItems(BuildContext context,PageController controller,) {

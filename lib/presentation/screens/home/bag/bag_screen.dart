@@ -37,7 +37,7 @@ class _BagScreenState extends State<BagScreen> {
       body: PageView(
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        // physics: const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: GlobalConstants.bagItems(context,_pageController,),
       ),
     );

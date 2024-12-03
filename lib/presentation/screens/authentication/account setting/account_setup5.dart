@@ -73,7 +73,7 @@ class _AccountSetup5State extends State<AccountSetup5> {
                         Container(
                           width: 80,
                           height: 4,
-                          color: Colors.white,
+                          color: AppColors.w,
                         ),
                         Container(
                           width: 100,
@@ -159,7 +159,7 @@ class _AccountSetup5State extends State<AccountSetup5> {
                           color: !anySelected ? AppColors.gr8 : AppColors.w,
                           border: Border.all(
                             color: !anySelected
-                                ? Colors.black
+                                ? AppColors.bk
                                 : const Color(0x00000000), // Border color
                             width: 1, // Border width
                           ),
@@ -169,7 +169,7 @@ class _AccountSetup5State extends State<AccountSetup5> {
                           child: !anySelected
                               ? Text(
                             'Skip',
-                            style: TextStyle(color: Colors.grey[300]),
+                            style: TextStyle(color: AppColors.gr3),
                           )
                               : const Text(
                             'Next',

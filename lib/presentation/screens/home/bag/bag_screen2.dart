@@ -126,7 +126,7 @@ class _BagScreen2State extends State<BagScreen2> {
                   child: InkWell(
                     child: BlackButton(
                       text: 'Update',
-                      color: isFilled ? AppColors.bk : AppColors.gr1,
+                      color: isFilled ? AppColors.bk : AppColors.gr1, textColor: isFilled ? AppColors.w : AppColors.gr6,
                     ),
                   ),
                 ),

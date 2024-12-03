@@ -58,7 +58,7 @@ class _AccountSetupImgNameState extends State<AccountSetupImgName> {
                             width: 3.0,
                           )
                         : Border.all(
-                            color: Colors.grey,
+                            color: AppColors.gr,
                             width: 1.0,
                           ),
                   ),
@@ -76,9 +76,9 @@ class _AccountSetupImgNameState extends State<AccountSetupImgName> {
               height: 20,
             ),
             if (widget.showDivider)
-              const Divider(
+              Divider(
                 height: 6,
-                color: Colors.grey,
+                color: AppColors.gr,
               )
           ],
         ),

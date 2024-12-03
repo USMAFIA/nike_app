@@ -100,7 +100,7 @@ class _Home3State extends State<Home3> {
                 child: Container(
                   padding: const EdgeInsets.only(top: 40, bottom: 40),
                   width: 350,
-                  child: const BlackButton(text: 'Explore'),
+                  child: const BlackButton(text: 'Explore', textColor: AppColors.w,),
                 ),
               ),
               const Center(

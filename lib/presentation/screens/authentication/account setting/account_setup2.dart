@@ -81,7 +81,7 @@ class _AccountSetup2State extends State<AccountSetup2> {
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>const AccountSetup3()));
                         },
-                        child: const BlackButton(text: 'Get Started',color: AppColors.w,),
+                        child: const BlackButton(text: 'Get Started',color: AppColors.w, textColor: AppColors.bk,),
                       ),
                     ),
                   ),

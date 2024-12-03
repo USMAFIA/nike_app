@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nike_app/constant/colors.dart';
 import 'package:nike_app/presentation/widget/black_button.dart';
-import 'package:nike_app/presentation/widget/hel_text.dart';
+import '../../../widget/bag_screen_widgets/widget2_bag_screen.dart';
+import '../../../widget/bag_screen_widgets/widget3_bag_screen.dart';
 
 class BagScreen1 extends StatefulWidget {
   final PageController controller;
@@ -43,12 +44,12 @@ class _BagScreen1State extends State<BagScreen1> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Not in a Hurry',
                           style: TextStyle(
                               fontWeight: FontWeight.w800, fontSize: 23),
                         ),
-                        Text(
+                        const Text(
                           'Select No Rush Shipping at checkout.',
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
@@ -102,7 +103,7 @@ class _BagScreen1State extends State<BagScreen1> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Row(
@@ -120,10 +121,10 @@ class _BagScreen1State extends State<BagScreen1> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 12,
                           ),
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -159,97 +160,24 @@ class _BagScreen1State extends State<BagScreen1> {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
-                              backgroundColor: Colors.white,
-                              builder: (context) => Container(
-                                height: 386,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 160.0),
-                                      child: Container(
-                                        height: 4,
-                                        width: 46,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: AppColors.gr6,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 64,
-                                    ),
-                                    Text(
-                                      'Remove',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: AppColors.gr4,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Expanded(
-                                      child: ListWheelScrollView.useDelegate(
-                                        itemExtent: 64,
-                                        perspective: 0.00003,
-                                        onSelectedItemChanged: (index) {
-                                          setState(() {
-                                            selectedQuantity = index + 1;
-                                          });
-                                        },
-                                        childDelegate:
-                                            ListWheelChildBuilderDelegate(
-                                          builder: (context, index) {
-                                            if (index < 0 || index >= 10)
-                                              return null;
-                                            return Center(
-                                              child: Text(
-                                                "${index + 1}",
-                                                style: const TextStyle(
-                                                    fontSize: 24),
-                                              ),
-                                            );
-                                          },
-                                          childCount: 10,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    BlackButton(text: 'Done'),
-                                    SizedBox(
-                                      height: 37,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              backgroundColor: AppColors.w,
+                              builder: (context) => Widget3BagScreen(selectedQuantity: selectedQuantity,),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Qty 1',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w700),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.keyboard_arrow_up,
                         size: 34,
                       ),
-                      Expanded(child: SizedBox()),
-                      Text(
+                      const Expanded(child: SizedBox()),
+                      const Text(
                         'US\$10.00',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w700),
@@ -257,17 +185,17 @@ class _BagScreen1State extends State<BagScreen1> {
                     ],
                   ),
                 ),
-                Text(
+                const Text(
                   'Delivery',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
-                Text(
+                const Text(
                   'Arrived Wed, 11 May',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'to Fri, 13 May   ',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
@@ -275,10 +203,10 @@ class _BagScreen1State extends State<BagScreen1> {
                     InkWell(
                       onTap: () {
                         widget.controller.animateToPage(1,
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut);
                       },
-                      child: Text(
+                      child: const Text(
                         'Edit location',
                         style: TextStyle(
                           fontSize: 20,
@@ -289,26 +217,26 @@ class _BagScreen1State extends State<BagScreen1> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 47,
                 ),
-                Text(
+                const Text(
                   'Plck-Up',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
-                Text(
+                const Text(
                   'Find a Store',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
                       decoration: TextDecoration.underline),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 18,
                 ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 23.0),
+                const Divider(),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 23.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -326,8 +254,8 @@ class _BagScreen1State extends State<BagScreen1> {
                     ],
                   ),
                 ),
-                Divider(),
-                SizedBox(
+                const Divider(),
+                const SizedBox(
                   height: 37,
                 ),
                 Row(
@@ -368,7 +296,7 @@ class _BagScreen1State extends State<BagScreen1> {
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -383,216 +311,22 @@ class _BagScreen1State extends State<BagScreen1> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 InkWell(
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
-                      backgroundColor: Colors.white,
-                      builder: (context) => Container(
-                        height: 440,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                'Nike Everyday Plus Cushioned',
-                                style: TextStyle(
-                                    fontSize: 19, fontWeight: FontWeight.w700),
-                              ),
-                              Text(
-                                'Mystic Navy/Worn Blue/Worn Blue',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: AppColors.gr6,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              SizedBox(
-                                height: 28,
-                              ),
-                              Divider(),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              Center(
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    Text(
-                                      'Delivery',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Expanded(child: SizedBox()),
-                                    Text(
-                                      'Select Delivery',
-                                      style: TextStyle(
-                                        color: AppColors.pk,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: AppColors.bk,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 14,
-                              ),
-                              Divider(),
-                              SizedBox(
-                                height: 14,
-                              ),
-                              Center(
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 17,
-                                    ),
-                                    Text(
-                                      'Payment',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Expanded(child: SizedBox()),
-                                    Text(
-                                      'Select Payment',
-                                      style: TextStyle(
-                                        color: AppColors.pk,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: AppColors.bk,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              Divider(),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              Center(
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 19,
-                                    ),
-                                    Text(
-                                      'Purchase Summary',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Expanded(child: SizedBox()),
-                                    Text(
-                                      'US\$10.00',
-                                      style: TextStyle(
-                                        color: AppColors.gr6,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: AppColors.bk,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 13,
-                              ),
-                              Divider(),
-                              Text(
-                                'By tapping ‘Submit Payment’ , I agree to the Terms of Sale.',
-                                style: TextStyle(
-                                    fontSize: 10, color: AppColors.gr6),
-                              ),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                    showModalBottomSheet(
-                                      context: context,
-                                      backgroundColor: Colors.white,
-                                      builder: (context) => Container(
-                                        height: 704,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Center(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                              //
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: BlackButton(
-                                    text: 'Submit Payment',
-                                    color: AppColors.gr1,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
+                      backgroundColor: AppColors.w,
+                      builder: (context) => const Widget2BagScreen(),
                     );
                   },
-                  child: BlackButton(
-                    text: 'Checkout',
+                  child: const BlackButton(
+                    text: 'Checkout', textColor: AppColors.w,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 14,
                 ),
               ],

@@ -266,7 +266,7 @@ class _ProductDetailScreen1State extends State<ProductDetailScreen1> {
                           child: const BlackButton(
                             text: 'Select Size ↓',
                             color: AppColors.w,
-                            height: 60,
+                            height: 60, textColor: AppColors.bk,
                           ),
                         ),
                         const SizedBox(
@@ -319,7 +319,7 @@ class _ProductDetailScreen1State extends State<ProductDetailScreen1> {
                           },
                           child: const BlackButton(
                             text: 'Add to Bag',
-                            height: 60,
+                            height: 60, textColor: AppColors.w,
                           ),
                         ),
 
@@ -329,7 +329,7 @@ class _ProductDetailScreen1State extends State<ProductDetailScreen1> {
                         const BlackButton(
                           text: 'Favourite ♡',
                           color: AppColors.w,
-                          height: 60,
+                          height: 60, textColor: AppColors.bk,
                         ),
                         const SizedBox(
                           height: 56,
