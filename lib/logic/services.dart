@@ -1,16 +1,18 @@
 import 'dart:io';
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
+import '../presentation/screens/authentication/account setting/account_setup7.dart';
 
 class AppMethods {
 
@@ -86,7 +88,9 @@ class AppMethods {
       }
       return user;
     } catch (e) {
-      print('Error signing in with Google: $e');
+      if (kDebugMode) {
+        print('Error signing in with Google: $e');
+      }
       return null;
     }
   }
@@ -145,13 +149,19 @@ class AppMethods {
     );
     if (notificationSettings.authorizationStatus ==
         AuthorizationStatus.authorized) {
-      print('User granted permission');
+      if (kDebugMode) {
+        print('User granted permission');
+      }
       String? token = await AppMethods().getDeviceToken();
     } else if (notificationSettings.authorizationStatus ==
         AuthorizationStatus.provisional) {
-      print('User granted provisional permission');
+      if (kDebugMode) {
+        print('User granted provisional permission');
+      }
     } else {
-      print('User denied permission');
+      if (kDebugMode) {
+        print("User denied permission");
+      }
     }
   }
 
@@ -168,7 +178,9 @@ class AppMethods {
       iOS: iosInitializationSettings
     );
     await _flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onDidReceiveNotificationResponse: (payload) {});
+        onDidReceiveNotificationResponse: (payload) {
+      handleMessage(context, message);
+        });
   }
 
 
@@ -218,15 +230,42 @@ class AppMethods {
       if (kDebugMode) {
         print('title=======>${message.notification!.title.toString()}');
         print('body=======>${message.notification!.body.toString()}');
+        print('Data=======>${message.data.toString()}');
+        print('Type=======>${message.data['type'].toString()}');
       }
       if (Platform.isAndroid) {
         AppMethods().initLocalNotifications(context, message);
+        showNotification(message);
+      }else{
         showNotification(message);
       }
     });
   }
 
+  void handleMessage(BuildContext context,RemoteMessage message){
+    if(message.data['type'] == 'us'){
+      Navigator.push(context, MaterialPageRoute(builder: (_)=>const AccountSetup7()));
+    }
+  }
 
+  Future<void> setupInteractMessage(BuildContext context)async{
+
+    // when app is terminated
+    RemoteMessage? initialMessage = await FirebaseMessaging.instance.getInitialMessage();
+    if(initialMessage != null){
+      handleMessage(context, initialMessage);
+    }else{
+      if (kDebugMode) {
+        print('the initial message is null-------------');
+      }
+    }
+
+    //when app is in background
+    FirebaseMessaging.onMessageOpenedApp.listen((event){
+      handleMessage(context, event);
+    });
+
+  }
 
 
   Future<String> getDeviceToken() async {
@@ -240,4 +279,27 @@ class AppMethods {
       print('refresh');
     });
   }
+  //sending notifications from one device to another device
+
+
+
+  //getting permission to use location using geolocator
+  Future<Position> getCurrentLocation()async{
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if(!serviceEnabled){
+      return Future.error('Location services are disabled.');
+    }
+    LocationPermission permission = await Geolocator.checkPermission();
+    if(permission == LocationPermission.denied){
+      permission = await Geolocator.requestPermission();
+      if(permission == LocationPermission.denied){
+        return Future.error('Location permission are disabled.');
+      }
+    }
+    if(permission == LocationPermission.deniedForever){
+      return Future.error('Location Permission are permanently disabled, we cannot request permission');
+    }
+    return await Geolocator.getCurrentPosition();
+  }
+
 }

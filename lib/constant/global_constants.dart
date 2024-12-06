@@ -12,7 +12,6 @@ import '../data/model/response_models/products_response_model.dart';
 import '../presentation/screens/home/Profile_screens/Profile_screen1.dart';
 import '../presentation/screens/home/bag/bag_screen2.dart';
 import '../presentation/screens/home/bag/bag_screen.dart';
-import '../presentation/widget/bag_screen_widgets/done_widget_bag.dart';
 import '../presentation/screens/home/home.dart';
 import '../presentation/screens/home/home_screens/home1.dart';
 import '../presentation/screens/home/home_screens/home2.dart';

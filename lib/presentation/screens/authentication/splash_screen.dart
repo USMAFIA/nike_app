@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nike_app/logic/services.dart';
 import 'package:nike_app/presentation/screens/authentication/second_screen.dart';
 
 import '../../../constant/colors.dart';
@@ -12,9 +13,12 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  AppMethods appMethods = AppMethods();
+  
   @override
   void initState() {
     super.initState();
+    appMethods.setupInteractMessage(context);
      Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const SecondScreen()),
