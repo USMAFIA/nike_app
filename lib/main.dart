@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:nike_app/presentation/screens/authentication/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,7 +11,9 @@ void main() async{
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
-
+Future<void> _firebaseMessigingBackgroundHandler(RemoteMessage message)async {
+  await Firebase.initializeApp();
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nike_app/presentation/widget/bag_screen_widgets/done_widget_bag.dart';
 import 'package:nike_app/presentation/widget/bag_screen_widgets/add_delivery_address.dart';
 
 import '../../../constant/colors.dart';
 import '../black_button.dart';
 
 class Delivery1BagScreen extends StatelessWidget {
-  const Delivery1BagScreen({super.key});
+  final PageController controller;
+  const Delivery1BagScreen({super.key,required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -294,9 +296,19 @@ class Delivery1BagScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: BlackButton(text: 'Continue', textColor: !isAddress ? AppColors.bk : AppColors.w,),
+              InkWell(
+                onTap: (){
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: AppColors.w,
+                    elevation: 1110,
+                    builder: (context) => DoneWidgetBag(controller: controller,),
+                  );
+                },
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: BlackButton(text: 'Continue', textColor: !isAddress ? AppColors.bk : AppColors.w,),
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.all(20),

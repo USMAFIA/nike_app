@@ -319,7 +319,7 @@ class _BagScreen1State extends State<BagScreen1> {
                     showModalBottomSheet(
                       context: context,
                       backgroundColor: AppColors.w,
-                      builder: (context) => const Widget2BagScreen(),
+                      builder: (context) => Widget2BagScreen(controller: widget.controller,),
                     );
                   },
                   child: const BlackButton(

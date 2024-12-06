@@ -1,7 +1,11 @@
+import 'dart:io';
 import 'package:blur/blur.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nike_app/presentation/screens/authentication/account%20setting/account_setup7.dart';
 import '../../../../constant/colors.dart';
+import '../../../../logic/services.dart';
 import '../../../widget/account_settings_widget/account_setup_heading.dart';
 
 class AccountSetup6 extends StatefulWidget {
@@ -12,6 +16,8 @@ class AccountSetup6 extends StatefulWidget {
 }
 
 class _AccountSetup6State extends State<AccountSetup6> {
+
+  AppMethods appMethods = AppMethods();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +49,7 @@ class _AccountSetup6State extends State<AccountSetup6> {
                         Container(
                           width: 100,
                           height: 4,
-                          color: Colors.white,
+                          color: AppColors.w,
                         ),
                         Container(
                           width: 80,
@@ -66,7 +72,15 @@ class _AccountSetup6State extends State<AccountSetup6> {
                   padding: const EdgeInsets.only(bottom: 40),
                   child: InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_)=>const AccountSetup7()));
+                      // appMethods.isTokenRefresh();
+                      appMethods.requestNotificationPermissions();
+                      appMethods.fireBaseInit(context);
+                      appMethods.getDeviceToken().then((value){
+                        if (kDebugMode) {
+                          print('Token=======>${value}');
+                        }
+                      });
+                      // Navigator.push(context, MaterialPageRoute(builder: (_)=>const AccountSetup7()));
                     },
                     child: Center(
                       child: Container(

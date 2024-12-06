@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nike_app/data/model/response_models/blog_response_model.dart';
+import 'package:nike_app/presentation/screens/home/Profile_screens/profile.dart';
 import 'package:nike_app/presentation/screens/home/bag/bag_screen1.dart';
-import 'package:nike_app/presentation/screens/home/bag/bag_screen4.dart';
+import 'package:nike_app/presentation/screens/home/bag/bag_screen3.dart';
 import 'package:nike_app/presentation/screens/home/favourite/favourite_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/comments_screen.dart';
 import 'package:nike_app/presentation/screens/home/home_screens/home7.dart';
 import 'package:nike_app/presentation/screens/home/product_detail/product_detail_screens/product_detail_screen1.dart';
 import '../data/model/response_models/comment_response_model.dart';
 import '../data/model/response_models/products_response_model.dart';
+import '../presentation/screens/home/Profile_screens/Profile_screen1.dart';
 import '../presentation/screens/home/bag/bag_screen2.dart';
 import '../presentation/screens/home/bag/bag_screen.dart';
-import '../presentation/screens/home/bag/bag_screen3.dart';
+import '../presentation/widget/bag_screen_widgets/done_widget_bag.dart';
 import '../presentation/screens/home/home.dart';
 import '../presentation/screens/home/home_screens/home1.dart';
 import '../presentation/screens/home/home_screens/home2.dart';
@@ -33,7 +35,7 @@ class GlobalConstants {
       Shop(initialPage: initialPage,),
       const FavouriteScreen(),
       BagScreen(initialPage: initialPage,),
-      const Text('---------------------------------profile---------------------------------'),
+      Profile(initialPage: initialPage,),
     ];
   }
   static homeItems(BuildContext context,PageController controller, BlogResponseModel blog){
@@ -87,7 +89,13 @@ class GlobalConstants {
       BagScreen1(controller: controller,),
       BagScreen2(controller: controller,),
       BagScreen3(controller: controller,),
-      BagScreen4(controller: controller,),
+    ];
+  }
+  static profileItems(BuildContext context,PageController controller) {
+    return [
+      ProfileScreen1(controller: controller,),
+      const Text('---------------------------------2---------------------------------'),
+      const Text('---------------------------------3---------------------------------'),
     ];
   }
   static shopItems(BuildContext context,PageController controller,) {

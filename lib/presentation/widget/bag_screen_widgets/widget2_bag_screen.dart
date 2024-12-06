@@ -5,7 +5,8 @@ import '../../../constant/colors.dart';
 import '../black_button.dart';
 
 class Widget2BagScreen extends StatelessWidget {
-  const Widget2BagScreen({super.key});
+  final PageController controller;
+  const Widget2BagScreen({super.key,required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +213,7 @@ class Widget2BagScreen extends StatelessWidget {
                   context: context,
                   backgroundColor: AppColors.w,
                   elevation: 1110,
-                  builder: (context) => const Delivery1BagScreen(),
+                  builder: (context) => Delivery1BagScreen(controller: controller,),
                 );
               },
               child: BlackButton(

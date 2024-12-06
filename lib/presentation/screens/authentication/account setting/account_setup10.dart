@@ -14,7 +14,6 @@ class AccountSetup10 extends StatefulWidget {
 class _AccountSetup10State extends State<AccountSetup10> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(

@@ -15,6 +15,7 @@ class AppColors {
   static Color or = Colors.orange;
   static Color y = Colors.yellow;
   static Color gn = Colors.green;
+  static Color? gn6 = Colors.green[600];
   static Color bn = Colors.brown;
   static Color pk = Colors.pink;
   static const Color r = Color(0xFFB00020);

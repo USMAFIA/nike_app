@@ -7,14 +7,16 @@ class Textformfield1 extends StatelessWidget {
   final bool isblack;
   final String title;
   final double top;
+  final int maxLines;
   final double rlpadding;
-  const Textformfield1({super.key,this.top = 10,this.isblack = false,this.rlpadding = 20,required this.controller,required this.title});
+  const Textformfield1({super.key,this.top = 10,this.maxLines = 1,this.isblack = false,this.rlpadding = 20,required this.controller,required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: top,right: rlpadding,left: rlpadding),
       child: TextFormField(
+        maxLines: maxLines,
         controller: controller,
         decoration: InputDecoration(
           hintText: title,
